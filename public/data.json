@@ -1,0 +1,19 @@
+[{
+  "name": "Huy Tran",
+  "todo": [{
+    "work": "homework",
+    "done": true
+  }, {
+    "work": "sleep",
+    "done": false
+  }]
+}, {
+  "name": "Bob",
+  "todo": [{
+    "work": "eat",
+    "done": true
+  }, {
+    "work": "sleep",
+    "done": false
+  }]
+}]

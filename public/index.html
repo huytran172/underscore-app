@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="stylesheets/styles.css">
+  <script src="lib/underscore/underscore-min.js" charset="utf-8"></script>
+</head>
+
+<body>
+  <script>
+    var compiled = _.template("<h1>hello:<%= name %></h1>");
+    str = compiled({name: 'moe'});
+    document.querySelector('body').innerHTML += str;
+  </script>
+</body>
+
+</html>

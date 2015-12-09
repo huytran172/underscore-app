@@ -4,14 +4,27 @@
 <head>
   <link rel="stylesheet" href="stylesheets/styles.css">
   <script src="lib/underscore/underscore-min.js" charset="utf-8"></script>
+  <script src="javascripts/clientapp.js"></script>
 </head>
 
-<body>
-  <script>
-    var compiled = _.template("<h1>hello:<%= name %></h1>");
-    str = compiled({name: 'moe'});
-    document.querySelector('body').innerHTML += str;
-  </script>
+<body onload="clientApp()">
+  <header>
+    <h1>Todo List</h1>
+  </header>
+
+  <main>
+    <div id="searchArea">
+      <div>
+        <input type="text" id="searchBox" placeholder="Enter your name">
+        <button onclick="clientApp().submit()">Search</button>
+      </div>
+    </div>
+
+    <div id="todoList">
+      <div id="username"></div>
+      <div id="listItem"></div>
+    </div>
+  </main>
 </body>
 
 </html>

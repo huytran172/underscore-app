@@ -6,6 +6,10 @@
   }, {
     "work": "sleep",
     "done": false
+  },
+  {
+    "work": "sleep",
+    "done": false
   }]
 }, {
   "name": "Bob",

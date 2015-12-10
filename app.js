@@ -10,10 +10,10 @@ app
   .post('/username', function (req, res) {
     req.on('data', function (data) {
       var temp = decodeURI(data);
-      // send all templates string
+      // send all templates string as a json object
       res.json(
-        {header: utility.utilities().Compile(temp).header,
-        listItem: utility.utilities().Compile(temp).listItem}
+        {header: utility.utilities.Compile(temp).header,
+        listItem: utility.utilities.Compile(temp).listItem}
       );
     });
   })

@@ -26,10 +26,14 @@ var clientApp = function () {
         username.innerHTML = "";
         listItem.innerHTML = "";
         console.log(xhr.responseText);
-        // Response text is json object containing all templates
         var template = JSON.parse(xhr.responseText);
-        username.innerHTML += template.header;
-        listItem.innerHTML += template.listItem;
+        if (template.header == null || template.listItem == null) {
+          username.innerHTML = "<h3>No user was found</h3>"
+        }
+        else {
+          username.innerHTML += template.header;
+          listItem.innerHTML += template.listItem;
+        }
       }
       else {
         alert('Something went wrong');

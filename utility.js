@@ -6,7 +6,7 @@
  */
 
 var _ = require('underscore');
-module.exports.utilities = function() {
+module.exports.utilities = (function() {
   var TODOdata = require('./data.json');
   var compiledHeader = _.template(
     "<h1 class='username'><%= name %></h1>"
@@ -40,4 +40,4 @@ module.exports.utilities = function() {
         : "";
     }
   };
-};
+}());

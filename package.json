@@ -1,5 +1,5 @@
 {
-  "engine": "node 4.2.3"
+  "engine": "node 4.2.3",
   "name": "hw7",
   "version": "1.0.0",
   "description": "Todo list templating with underscorejs",

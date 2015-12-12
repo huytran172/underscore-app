@@ -1,5 +1,4 @@
 {
-  "engine": "node 4.2.3",
   "name": "hw7",
   "version": "1.0.0",
   "description": "Todo list templating with underscorejs",
@@ -8,7 +7,7 @@
     "start": "node app.js"
   },
   "author": "Huy Tran",
-  "license": "MIT",
+  "license": "ISC",
   "dependencies": {
     "body-parser": "^1.14.1",
     "express": "^4.13.3",

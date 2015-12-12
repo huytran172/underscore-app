@@ -1,5 +1,4 @@
 var express = require('express'),
-    bodyParser = require('body-parser'),
     utility = require('./utility'),
     app = express();
 app
@@ -30,5 +29,4 @@ app
       );
     });
   })
-  .use(bodyParser())
   .listen(3000);

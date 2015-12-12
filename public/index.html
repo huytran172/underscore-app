@@ -2,29 +2,38 @@
 <html>
 
 <head>
+  <title>Todo App</title>
   <link rel="stylesheet" href="stylesheets/styles.css">
   <script src="lib/underscore/underscore-min.js" charset="utf-8"></script>
   <script src="javascripts/clientapp.js"></script>
 </head>
 
 <body onload="clientApp()">
-  <header>
-    <h1>Todo List</h1>
-  </header>
-
-  <main>
-    <div id="searchArea">
-      <div>
-        <input type="text" id="searchBox" placeholder="Enter your name">
-        <button onclick="clientApp().submit()">Search</button>
-      </div>
+<header>
+  <h1>Todo List</h1>
+  <div id="searchArea">
+    <input type="text" id="searchBox" placeholder="Enter your name">
+    <div>
+      <div class="button" id="buttonSearch" onclick="clientApp().submit()">Search</div>
     </div>
+  </div>
+</header>
 
-    <div id="todoList">
-      <div id="username"></div>
-      <div id="listItem"></div>
-    </div>
-  </main>
+<main>
+  <div id="todoList">
+    <div id="username"></div>
+    <div id="listItem"></div>
+    <div id="addArea"></div>
+  </div>
+</main>
 </body>
+<script>
+  window.addEventListener('keydown', function (event) {
+    var key = event.which;
+    if (key === 13) {
+      clientApp().submit();
+    }
+  });
+</script>
 
 </html>

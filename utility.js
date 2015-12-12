@@ -1,11 +1,12 @@
 /**
  * @type {_|exports|module.exports}
  * @private
- * Containing all underscore templates
+ * Containing underscore templates
  * @return Object containing utilities functions
  */
 
 var _ = require('underscore');
+var fs = require('fs');
 module.exports.utilities = (function() {
   var TODOdata = require('./data.json');
   var compiledHeader = _.template(
@@ -15,11 +16,6 @@ module.exports.utilities = (function() {
     "<ul>" +
     "<% _.each(todo, function(item) { %>" +
     "<li><%= item.work %> " +
-    "<% if (item.done) { %>" +
-      "<span>&#10003</span>" +
-    "<% } else { %>" +
-      "<span>&#10008</span>" +
-    "<% } %>" +
     "</li>" +
     "<% }) %>" +
     "</ul>"
@@ -32,12 +28,31 @@ module.exports.utilities = (function() {
       var userToDisplay = _.find(TODOdata, function(user) {
         return user.name.toLowerCase().search(username.toLowerCase()) != -1;
       });
-      return userToDisplay !== undefined ?
-      {
-        header: compiledHeader({name: userToDisplay.name}),
-        listItem: compileListItem({todo: userToDisplay.todo})
+      // If there is no such user, create a new record
+      if (userToDisplay == undefined) {
+        userToDisplay = {};
+        userToDisplay.name = username;
+        userToDisplay.todo = [];
+        TODOdata.push({"name": username, "todo": []});
       }
-        : "";
+      return  {
+                username: userToDisplay.name,
+                header: compiledHeader({name: userToDisplay.name}),
+                listItem: compileListItem({todo: userToDisplay.todo})
+              }
+    },
+    addToJSON: function(addInfo) {
+      _.each(TODOdata, function (user) {
+        if (user.name == addInfo.name) {
+          user.todo.push({"work": addInfo.item});
+        }
+      })
+    },
+    writeToFile: function () {
+      fs.writeFile('data.json', JSON.stringify(TODOdata), function (error) {
+        if (error) return console.log(error);
+        else console.log('file saved');
+      })
     }
-  };
+  }
 }());
